@@ -4,6 +4,8 @@ This command line helps you create components, screens and even redux implementa
 
 # Functionalities
 
+- Works inside projects initialized with expo or react native cli.
+- Create and delete navigations with all types (stack, drawer or tab).
 - Delete entire folder that combines screens or components.
 - Delete multiple screens and components.
 - Create multiple screens and components to a specific folder if needed.
@@ -92,6 +94,42 @@ rnhc create -c <component_name_1> <component_name_2> ... -f <folder_name>
 rnhc create -s <screen_name_1> <screen_name_2> ... -f <folder_name>
 ```
 
+- to create a stack navigation for specified screens run
+
+```
+rnhc create -n stack <screen_name_1> <screen_name_2> ...
+```
+
+- to create a stack navigation for specified screens in a specified folder run
+
+```
+rnhc create -n stack <screen_name_1> <screen_name_2> ... -f <folder_name>
+```
+
+- to create a drawer navigation for specified screens run
+
+```
+rnhc create -n drawer <screen_name_1> <screen_name_2> ...
+```
+
+- to create a drawer navigation for specified screens in a specified folder run
+
+```
+rnhc create -n drawer <screen_name_1> <screen_name_2> ... -f <folder_name>
+```
+
+- to create a tab navigation for specified screens run
+
+```
+rnhc create -n tab <screen_name_1> <screen_name_2> ...
+```
+
+- to create a tab navigation for specified screens in a specified folder run
+
+```
+rnhc create -n tab <screen_name_1> <screen_name_2> ... -f <folder_name>
+```
+
 ---
 
 ### `rnhc delete`
@@ -140,6 +178,18 @@ rnhc delete -c -f <folder_name>
 rnhc delete -s -f <folder_name>
 ```
 
+- to delete an existed navigation file at `app/screens/` run
+
+```
+rnhc delete -n
+```
+
+- to delete an existed navigation file in a specified folder run
+
+```
+rnhc delete -n -f <folder_name>
+```
+
 ---
 
 ### `rnhc combine`
@@ -162,9 +212,18 @@ rnhc combine -s <screen_name_1> <screen_name_2> ... -f <folder_name>
 
 ### Notes
 
+- The `-f` option doesn't have to be specified with the folder name, it can also be specified to the path of the new folder, for example:
+
+```
+rnhc create -s s1 s2 -f path/to/folder
+```
+
+This will create s1 and s2 screens inside the folder `./app/screens/path/to/folder/`.
+
 - Keep in mind that you are at the root of your react native project, the command will check eaither way.
 
 - `rnhc` will always check if files or folders are existed for all commands.
+
 
 # Contributing
 
